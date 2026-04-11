@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scrim_wheel"
+version = "0.1.0"
+description = "CLI tool to randomly roll items from a list"
+requires-python = ">=3.9"
+dependencies = [
+    "typer>=0.9",
+]
+
+[project.scripts]
+scrim-wheel = "scrim_wheel.main:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
