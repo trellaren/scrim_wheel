@@ -3,6 +3,7 @@ import time
 from typing import List, Annotated
 import spin.popflash as pf
 import spin.wheel as won
+import pyttsx3
 
 import typer
 from rich.progress import track
@@ -38,12 +39,16 @@ def spin(
     if wheel:
         won.populateWheelOfNames(playersToSpinFrom)
     
+    engine = pyttsx3.init()
     if spins and not wheel:
         for spin in range(spins):
             spunUser = random.choice(playersToSpinFrom)
             playersToSpinFrom.remove(spunUser)
             print(f"Congrats {spunUser}, you have been spun out for the next match")
+            engine.say(f"Congrats {spunUser}, you have been spun out for the next match")
         total = 0
+        
+        engine.runAndWait()
         for value in track(range(100), description="Spinning an idiot..."):
             #Fake Processing time
             time.sleep(0.01)
