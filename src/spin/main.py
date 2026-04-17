@@ -41,13 +41,15 @@ def spin(
     if spins and not wheel:
         for spin in range(spins):
             spunUser = random.choice(playersToSpinFrom)
+            playersToSpinFrom.remove(spunUser)
             print(f"Congrats {spunUser}, you have been spun out for the next match")
         total = 0
-        for value in track(range(100), description="Spinning and idiot..."):
+        for value in track(range(100), description="Spinning an idiot..."):
             #Fake Processing time
             time.sleep(0.01)
             total += 1
         print(f"Processed {total} things.")
+        print(playersToSpinFrom)
         #TODO Hook this up.
 
     ## TODO check how many players left from the last scrim
