@@ -7,7 +7,9 @@ def populateWheelOfNames(playersToRollOutList):
     browser = webdriver.Firefox()
     browser.get(f"https://www.wheelofnames.com/")
 
-    wheelNames = element = browser.find_element(By.CSS_SELECTOR, "[role='textbox']")
+    wheelNames = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "[role='textbox']"))
+    )
     wheelNames.clear()
     for player in playersToRollOutList:
         wheelNames.send_keys(player)
