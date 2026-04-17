@@ -34,7 +34,14 @@ def spin(
 
     if drop:
         for d in drop:
-            playersToSpinFrom.pop(d)
+            match = next(
+                (p for p in playersToSpinFrom if p.lower() == d.lower()),
+                None
+            )
+            if match:
+                playersToSpinFrom.remove(match)
+            else:
+                print(f"Warning: '{d}' not found in the player list and will be ignored.")
     
     if wheel:
         won.populateWheelOfNames(playersToSpinFrom)
