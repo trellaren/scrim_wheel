@@ -15,15 +15,12 @@ def spin(
         name: Annotated[str, typer.Argument()] = "fragworks",
         spins: Annotated[int, typer.Option(help="Number of users to spin")] = 0,
         wheel: Annotated[bool, typer.Option(help="Use Wheel Of Names Visual Spinner")] = False,
-        drop: Annotated[list[str] | None, typer.Option(help="Drop a specific ")] = None,
+        drop: Annotated[list[str] | None, typer.Option(help="Drop a specific user from the spin list")] = None,
         move: Annotated[bool, typer.Option(help="INACTIVE Moves rolled players from last match to waiting room")] = False
      #   lastMatch: Annottate[]
     ):
     """
-    Extract the names from last popflash match \n
-    optionally with --spins for the number of users to spin \n
-    optionally with --wheel for using a wheelofnames in a browser \n
-    optionally with --drop to force drop specified users from the list.
+    Extract the names from last popflash match.
     """
     playersInLobby = pf.getActivePlayers(name)
     print(playersInLobby)
