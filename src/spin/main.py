@@ -16,7 +16,7 @@ def spin(
         name: Annotated[str, typer.Argument()] = "fragworks",
         spins: Annotated[int, typer.Option(help="Number of users to spin")] = 0,
         wheel: Annotated[bool, typer.Option(help="Use Wheel Of Names Visual Spinner")] = False,
-        drop: Annotated[list[str] | None, typer.Option(help="Drop a specific user from the spin list")] = None,
+        drop: Annotated[list[str] | None, typer.Option(help="Drop a specific user from the spin list. Can be specified multiple times to drop multiple users, e.g. --drop Alice --drop Bob")] = None,
         move: Annotated[bool, typer.Option(help="INACTIVE Moves rolled players from last match to waiting room")] = False
      #   lastMatch: Annottate[]
     ):
