@@ -1,4 +1,5 @@
 import random
+import time
 from typing import List, Annotated
 import spin.popflash as pf
 import spin.wheel as won
@@ -41,7 +42,7 @@ def spin(
         won.populateWheelOfNames(playersToSpinFrom)
     
     if spins and not wheel:
-        for spin in spins:
+        for spin in range(spins):
             spunUser = random.choice(playersToSpinFrom)
             print(f"Congrats {spunUser}, you have been spun out for the next match")
         total = 0
