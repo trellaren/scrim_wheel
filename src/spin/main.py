@@ -17,15 +17,18 @@ def spin(
         spins: Annotated[int, typer.Option(help="Number of users to spin")] = 0,
         wheel: Annotated[bool, typer.Option(help="Use Wheel Of Names Visual Spinner")] = False,
         drop: Annotated[list[str] | None, typer.Option(help="Drop a specific user from the spin list. Can be specified multiple times to drop multiple users, e.g. --drop Alice --drop Bob")] = None,
-        move: Annotated[bool, typer.Option(help="INACTIVE Moves rolled players from last match to waiting room")] = False
-     #   lastMatch: Annottate[]
+        move: Annotated[bool, typer.Option(help="INACTIVE Moves rolled players from last match to waiting room")] = False,
+        matchurl: Annotated[str, typer.Option(help="Sets the last match link manually")] = None
     ):
     """
     Extract the names from last popflash match.
     """
     playersInLobby = pf.getActivePlayers(name)
     print(playersInLobby)
-    lastMatchLink = pf.getLastMatch(name)
+    if matchurl:
+        lastMatchLink = matchurl
+    else:
+        lastMatchLink = pf.getLastMatch(name)
     print(lastMatchLink)
     lastMatchPlayerNames = pf.getLastMatchPlayerNames(lastMatchLink)
     print(lastMatchPlayerNames)
