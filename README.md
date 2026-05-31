@@ -15,7 +15,7 @@ pip install -e .
 
 ## Usage
 
-Roll out players from your latest match:
+Roll out players from your latest match (`fragworks` is the Popflash scrim name):
 
 ```bash
 spin spin fragworks --spins 2
