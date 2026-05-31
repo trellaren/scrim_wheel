@@ -21,6 +21,8 @@ Roll out players from your latest match:
 spin spin fragworks --spins 2
 ```
 
+(`spin` is the CLI executable name, and `spin` is its subcommand.)
+
 Useful options:
 
 - `--drop <name>` (repeatable): remove specific player(s) from the roll list
