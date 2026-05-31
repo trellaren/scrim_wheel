@@ -25,6 +25,6 @@ spin spin fragworks --spins 2
 
 Useful options:
 
-- `--drop <name>` (repeatable): remove specific player(s) from the roll list
+- `--drop <name>` (can be used multiple times, e.g. `--drop Alice --drop Bob`): remove specific player(s) from the roll list
 - `--wheel`: populate Wheel of Names instead of selecting in CLI
 - `--matchurl <url>`: manually provide a match URL instead of auto-detecting latest match
